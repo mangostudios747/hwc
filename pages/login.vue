@@ -13,7 +13,7 @@
 <script setup>
 const { onLogin } = useApollo()
 const router = useRouter();
-const email = ref("ss44523@pausd.us")
+const email = ref("")
 const password = ref("")
 const invalidCredentials = ref(false)
 
