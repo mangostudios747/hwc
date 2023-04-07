@@ -1,0 +1,31 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@nuxtjs/apollo": "^5.0.0-alpha.6",
+    "nuxt": "^3.3.3"
+  },
+  "dependencies": {
+    "@apollo/server": "^4.6.0",
+    "@as-integrations/h3": "^1.1.5",
+    "@rollup/plugin-graphql": "^2.0.3",
+    "apollo-datasource-mongodb": "^0.5.4",
+    "apollo-server-express": "^3.12.0",
+    "express": "^4.18.2",
+    "graphql": "^16.6.0",
+    "graphql-scalars": "^1.21.3",
+    "graphql-tools": "^8.3.19",
+    "jsonwebtoken": "^9.0.0",
+    "mongodb": "^5.2.0",
+    "nuxt-graphql-server": "^1.2.2",
+    "uuid": "^9.0.0",
+    "vite-plugin-graphql-loader": "^2.0.0"
+  }
+}
