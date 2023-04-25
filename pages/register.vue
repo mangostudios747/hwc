@@ -10,9 +10,9 @@
         margin-top: 1em;
       "
     >
-      <input v-model="email" />
-      <input v-model="username" />
-      <input type="password" v-model="password" />
+      <input placeholder="email" v-model="email" />
+      <input placeholder="username" v-model="username" />
+      <input placeholder="password" type="password" v-model="password" />
       <button type="submit">register</button>
     </form>
   </div>
