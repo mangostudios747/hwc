@@ -25,14 +25,14 @@ const loginQuery = gql`
 `
 async function login(){
   const {mutate} =  useMutation(loginQuery, {variables: {email: email.value, password: password.value}})
-  const {data:{login}} = await mutate()
-   if (login.error){
+  const {data:{login:token}} = await mutate()
+   if (token.error){
 
-    err.value = login.error
+    err.value = token.error
     return
    }
    error.value = null
-   onLogin(login.token)
+   onLogin(token)
    router.push('/app')
 }
 
