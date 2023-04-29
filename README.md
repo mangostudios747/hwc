@@ -1,42 +1,20 @@
-# Nuxt 3 Minimal Starter
+# homework central
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## roadmap
 
-## Setup
+### phase 1: basic authentication
 
-Make sure to install the dependencies:
+- [x] user database
+- [x] login
+- [x] register
+- [x] password hashing
+- [ ] email verification
+- [ ] forgot password
+- [ ] delete account
+- [ ] change password
+- [ ] change username
+- [ ] change email
 
-```bash
-# yarn
-yarn install
+### phase 2: basic usage
 
-# npm
-npm install
 
-# pnpm
-pnpm install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`
-
-```bash
-npm run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
