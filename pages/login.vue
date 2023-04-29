@@ -26,7 +26,7 @@ const loginQuery = gql`
 async function login(){
   const {mutate} =  useMutation(loginQuery, {variables: {email: email.value, password: password.value}})
   const {data:{login}} = await mutate()
-   if (!login.token){
+   if (login.error){
 
     err.value = login.error
     return
