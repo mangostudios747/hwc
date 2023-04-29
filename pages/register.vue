@@ -26,7 +26,9 @@ const password = ref("");
 
 const registerQuery = gql`
   mutation register($email: EmailAddress!, $password: String!, $username: String!) {
-    register(email: $email, password: $password, username: $username)
+    register(email: $email, password: $password, username: $username) {
+      token
+    }
   }
 `;
 async function register() {
@@ -38,7 +40,7 @@ async function register() {
     },
   });
   const {
-    data: { register: token },
+    data: { register: {token} },
   } = await mutate();
   if (!token) {
     console.log("hi??")

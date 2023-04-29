@@ -7,7 +7,7 @@
       <button type="submit">login</button>
     </form>
     
-    <div v-if="err=='invalidCredentials'" >invalid credentials</div>
+    <div v-if="err=='incorrectCredentials'" >invalid credentials</div>
     <div v-if="err=='emailUnverified'" >please verify your email to log in</div>
   </div>
 </template>
@@ -16,22 +16,25 @@ const { onLogin } = useApollo()
 const router = useRouter();
 const email = ref("")
 const password = ref("")
-const err = ref(null)
+const err = ref("")
 
 const loginQuery = gql`
   mutation login($email: EmailAddress!, $password: String!) {
-  login(email: $email, password: $password)
+  login(email: $email, password: $password) {
+    token
+    error
+  }
 }
 `
 async function login(){
   const {mutate} =  useMutation(loginQuery, {variables: {email: email.value, password: password.value}})
-  const {data:{login:token}} = await mutate()
-   if (token.error){
+  const {data:{login: {token, error}}} = await mutate()
+   if (error){
 
-    err.value = token.error
+    err.value = error
     return
    }
-   error.value = null
+   err.value = ""
    onLogin(token)
    router.push('/app')
 }
