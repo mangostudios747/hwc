@@ -9,7 +9,7 @@
 - [x] register
 - [x] password hashing
 - [x] email verification
-- [ ] forgot password
+- [x] forgot password
 - [ ] delete account
 - [ ] change password
 - [ ] change username

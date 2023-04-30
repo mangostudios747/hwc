@@ -6,7 +6,7 @@
       <input type="password" v-model="password" >
       <button type="submit">login</button>
     </form>
-    
+    <a href="/forgot-password">forgot password?</a>
     <div v-if="err=='incorrectCredentials'" >invalid credentials</div>
     <div v-if="err=='emailUnverified'" >please verify your email to log in</div>
   </div>
