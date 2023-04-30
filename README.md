@@ -8,7 +8,7 @@
 - [x] login
 - [x] register
 - [x] password hashing
-- [ ] email verification
+- [x] email verification
 - [ ] forgot password
 - [ ] delete account
 - [ ] change password
