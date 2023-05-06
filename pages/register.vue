@@ -1,19 +1,14 @@
 <template>
-  <div>
+  <div class="flex h-full w-full">
     <form
+      class="border-box mx-auto my-auto"
       @submit.prevent="register"
-      style="
-        flex-direction: column;
-        display: flex;
-        max-width: 15rem;
-        gap: 1em;
-        margin-top: 1em;
-      "
     >
-      <input placeholder="email" v-model="email" />
-      <input placeholder="username" v-model="username" />
-      <input placeholder="password" type="password" v-model="password" />
-      <button type="submit">register</button>
+      <h2 class="text-xl font-bold">register<span class="text-amber-500 text-2xl">.</span></h2>
+      <input class="inpt" placeholder="email" v-model="email" />
+      <input class="inpt" placeholder="username" v-model="username" />
+      <input class="inpt" placeholder="password" type="password" v-model="password" />
+      <button class="btn-link text-right" type="submit">register</button>
     </form>
   </div>
 </template>

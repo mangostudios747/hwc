@@ -1,16 +1,32 @@
 <template>
-  <div>
+  <div class="flex h-full w-full">
 
-    <form @submit.prevent="login" style="flex-direction: column; display: flex; max-width: 15rem; gap: 1em; margin-top: 1em">
-      <input v-model="email" >
-      <input type="password" v-model="password" >
-      <button type="submit">login</button>
-    </form>
-    <a href="/forgot-password">forgot password?</a>
+    <form @submit.prevent="login" class="mx-auto my-auto border-box">
+      <h2 class="text-xl font-bold">login<span class="text-amber-500 text-2xl">.</span></h2>
+      <input class="inpt" placeholder="email" v-model="email" >
+      <input class="inpt" placeholder="password" type="password" v-model="password" >
+      <button class="btn-link text-right" type="submit">login</button>
+      <a class="mt-12 link" href="/forgot-password">forgot password?</a>
     <div v-if="err=='incorrectCredentials'" >invalid credentials</div>
-    <div v-if="err=='emailUnverified'" >please verify your email to log in</div>
+    <div v-if="err=='emailUnverified'">please verify your email to log in</div>
+    </form>
+    
   </div>
 </template>
+<style>
+
+.inpt {
+  @apply w-64 caret-amber-400 rounded-none placeholder:text-white/80 bg-transparent border-amber-400 border-b-2 ring-0 outline-none
+}
+
+.link {
+  @apply text-amber-500 italic hover:underline
+}
+
+.border-box {
+  @apply gap-8 border-amber-400 border px-12 py-10 flex flex-col
+}
+</style>
 <script setup>
 const { onLogin } = useApollo()
 const router = useRouter();
@@ -38,8 +54,5 @@ async function login(){
    onLogin(token)
    router.push('/app')
 }
-
-
-
 </script>
 
