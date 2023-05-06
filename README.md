@@ -10,7 +10,7 @@
 - [x] password hashing
 - [x] email verification
 - [x] forgot password
-- [ ] delete account
+- [x] delete account
 - [ ] change password
 - [ ] change username
 - [ ] change email
