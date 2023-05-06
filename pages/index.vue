@@ -1,8 +1,6 @@
 <template>
-  <div>
-    hi <br/>
-    <a href="/login">login</a> <br/>
-    <a href="/register">register</a>
+  <div class="p-10">
+    hi
   </div>
 </template>
 
