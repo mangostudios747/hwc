@@ -15,17 +15,6 @@
 </template>
 <style>
 
-.inpt {
-  @apply w-64 caret-amber-400 rounded-none placeholder:text-white/80 bg-transparent border-amber-400 border-b-2 ring-0 outline-none
-}
-
-.link {
-  @apply text-amber-500 italic hover:underline
-}
-
-.border-box {
-  @apply gap-8 border-amber-400 border px-12 py-10 flex flex-col
-}
 </style>
 <script setup>
 const { onLogin } = useApollo()

@@ -24,7 +24,5 @@ const data = useQuery(query, {}).result;
 </script>
 
 <style>
-.btn-link {
-  @apply font-bold inline-block decoration-amber-400 underline decoration-[6px] hover:decoration-8 underline-offset-4 hover:underline-offset-[5px]
-}
+
 </style>
