@@ -1,14 +1,19 @@
 <template>
   <div>
-    omg you made it
-    <NuxtLink to="/app">home</NuxtLink> &nbsp;
-    <NuxtLink to="/app/settings">settings</NuxtLink>
     <NuxtPage/>
   </div>
 </template>
 
 <script setup>
+definePageMeta({
+  middleware: function(to, from) {
+    const user = useState("me");
 
+    if (!user.value) {
+      return navigateTo('/login');
+    }
+  },
+});
 </script>
 
 <style>

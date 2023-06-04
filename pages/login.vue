@@ -1,7 +1,7 @@
 <template>
   <div class="flex h-full w-full">
 
-    <form @submit.prevent="login" class="mx-auto my-auto border-box">
+    <form @submit.prevent="login" class="mx-auto my-auto box-container border-box">
       <h2 class="text-xl font-bold">login<span class="text-amber-500 text-2xl">.</span></h2>
       <input class="inpt" placeholder="email" v-model="email" >
       <input class="inpt" placeholder="password" type="password" v-model="password" >

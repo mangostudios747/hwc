@@ -1,7 +1,7 @@
 <template>
   <div class="flex h-full w-full">
     <form
-      class="border-box mx-auto my-auto"
+      class="border-box box-container mx-auto my-auto"
       @submit.prevent="register"
     >
       <h2 class="text-xl font-bold">register<span class="text-amber-500 text-2xl">.</span></h2>

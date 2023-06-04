@@ -12,7 +12,11 @@
 }
 
 .border-box {
-    @apply gap-8 border-amber-400 border px-12 py-10 flex flex-col
+    @apply border-amber-400 border 
+}
+
+.box-container {
+    @apply gap-8  px-12 py-10 flex flex-col
 }
 
 .btn-link {
