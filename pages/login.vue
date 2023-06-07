@@ -41,7 +41,8 @@ async function login(){
    }
    err.value = ""
    onLogin(token)
-   router.push('/app')
+   document.location.reload()
+   navigateTo('/app')
 }
 </script>
 

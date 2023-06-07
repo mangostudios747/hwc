@@ -6,14 +6,17 @@ export default defineNuxtConfig({
   apollo: {
     clients: {
       default: {
-        httpEndpoint:  'https://frozenmango747.uc.r.appspot.com' ||
-          (process.env.NODE_ENV == 'production' ? 'https://frozenmango747.uc.r.appspot.com' : 'http://localhost:4000'),
+        httpEndpoint:  //'https://frozenmango747.uc.r.appspot.com/graphql' ||
+          (process.env.NODE_ENV == 'production' ? 'https://frozenmango747.uc.r.appspot.com/graphql' : 'http://localhost:4000/graphql'),
         httpLinkOptions: {
           credentials: 'include'
         },
         defaultOptions: {
           fetchPolicy: "no-cache",
-        }
+        },
+        wsEndpoint: //'wss://frozenmango747.uc.r.appspot.com/graphql' ||
+        (process.env.NODE_ENV == 'production' ? 'wss://frozenmango747.uc.r.appspot.com/graphqlws' : 'ws://localhost:4000/graphqlws'),
+      
       }
     }
   },

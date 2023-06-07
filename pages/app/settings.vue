@@ -65,9 +65,7 @@ async function deleteAccount() {
   @apply p-2 w-full h-full bg-opacity-0 bg-white hover:bg-opacity-10 text-left font-medium;
 }
 
-.listboxinput {
-  @apply w-full bg-transparent outline-none text-white/80;
-}
+
 
 .listheading {
   @apply text-3xl font-semibold pt-4 pb-2; /* text-amber-400;/**/

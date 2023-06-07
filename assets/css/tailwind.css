@@ -12,13 +12,17 @@
 }
 
 .border-box {
-    @apply border-amber-400 border 
+    @apply border-amber-400 border
 }
 
 .box-container {
-    @apply gap-8  px-12 py-10 flex flex-col
+    @apply gap-8 px-12 py-10 flex flex-col
 }
 
 .btn-link {
     @apply font-bold inline-block decoration-amber-400 underline decoration-[6px] hover:decoration-8 underline-offset-4 hover:underline-offset-[5px]
-  }
+}
+
+.listboxinput {
+    @apply w-full bg-transparent outline-none text-white/80;
+}
