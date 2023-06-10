@@ -40,28 +40,7 @@
             leave-from="opacity-100 scale-100"
             leave-to="opacity-0 scale-95"
           >
-            <DialogPanel
-              class="w-full text-white border-box max-w-md transform overflow-hidden  bg-black p-6 text-left align-middle shadow-xl transition-all"
-            >
-              <DialogTitle
-                as="h3"
-                class="text-lg font-medium leading-6"
-              >
-                Create Space
-              </DialogTitle>
-              <div class="mt-4">
-                <input class="inpt" placeholder="Title"/>
-              </div>
-
-              <div class="mt-4 text-right">
-                <button
-                  class="btn-link "
-                  @click="closeModal"
-                >
-                  Create
-                </button>
-              </div>
-            </DialogPanel>
+            <new-space-dialog />
           </TransitionChild>
         </div>
       </div>

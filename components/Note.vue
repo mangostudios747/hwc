@@ -1,6 +1,6 @@
 <template>
   <div>
-    <input v-if="result" class="listboxinput" v-model="noteTitle" />
+    <input v-if="result" class="listboxinput hover:bg-white/10 px-2 py-1" v-model="noteTitle" />
     <div class="pl-4">
         <Note :noteID="note._id" :key="note._id" v-for="note in result?.noteByID.subNotes" />
     </div>

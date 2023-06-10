@@ -6,16 +6,18 @@
         <h3 class="listheading">Profile</h3>
         <div class="listbox flex flex-row gap-2">
           <span class="font-semibold w-24">Username</span>
-          <input :value="user.username" class=" listboxinput" />
+          <span v-text="user.username" class=" listboxinput" />
         </div>
         <div class="listbox flex flex-row gap-2">
           <span class="font-semibold w-24">Email</span>
-          <input :value="user.email" class=" listboxinput" />
+          <span v-text="user.email" class=" listboxinput" />
         </div>
       </div>
 
       <div class="border-box px-12 py-4">
         <h3 class="listheading">Account</h3>
+        <button class="listbox">Change Username</button>
+        <button class="listbox">Change Email</button>
         <button class="listbox" @click="logout">Logout</button>
         <button class="listbox" @click="deleteAccount" style="color: red">
           Delete Account
@@ -64,8 +66,6 @@ async function deleteAccount() {
 .listbox {
   @apply p-2 w-full h-full bg-opacity-0 bg-white hover:bg-opacity-10 text-left font-medium;
 }
-
-
 
 .listheading {
   @apply text-3xl font-semibold pt-4 pb-2; /* text-amber-400;/**/

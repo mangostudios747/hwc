@@ -3,7 +3,7 @@
     <div v-if="!space">loading...</div>
     <div v-else>
     <h1 class="text-4xl !font-semibold">{{ space.title }}</h1>
-    <div>
+    <div class="mt-8">
       <Note :noteID="note._id" :key="note._id" v-for="note in space.rootNotes"/>
     </div>
     </div>
