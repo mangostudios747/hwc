@@ -1,15 +1,12 @@
 <template>
   <div class="mt-8 max-w-2xl mx-auto flex flex-col">
-    <client-only>
-    <div v-if="!space">loading...</div>
-    <div v-else>
+    <div v-if="loading">loading...</div>
+    <div v-if="!loading">
             <!--<breadcrumb :notes="data" :space="space"/>-->
 
-        <Nuxt-Page :space="space" :rootNotes="space.rootNotes" />
+        <Nuxt-Page :space="space" :rootNotes="space?.rootNotes" />
         
       </div>
-    </client-only>
-    {{error}}
     </div>
 </template>
 
@@ -29,7 +26,7 @@ const query = gql`
 `;
 
 const { result, loading } = useQuery(query, { id: route.params.space });
-const space = ref(result.value?.spaceByID);
+const space = computed(()=>result?.value?.spaceByID);
 
 const note_ids = route.params.notes;
 

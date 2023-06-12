@@ -33,7 +33,7 @@
         leave-to-class="translate-y-1 opacity-0"
       >
         <PopoverPanel
-          focus="true"
+          :focus="true"
           class="absolute w-52 left-1/2 flex z-10 mt-6 top-4 -translate-x-1/2 transform px-4"
         >
           <div

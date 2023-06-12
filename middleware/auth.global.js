@@ -2,7 +2,6 @@
 
 export default defineNuxtRouteMiddleware(async (to, from) => {
     //if (process.server) {
-        console.log(to.fullPath, from.fullPath)
         const token = useCookie('apollo:default.token')
         const query = gql`
             query getMe($token: JWT!) {
@@ -14,7 +13,6 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
             `;
         const {data: {value}} = await useAsyncQuery(query, { token: token.value });
         if (!value) {
-            console.log("hi")
             useState("me", ()=> {
                 return null
             })
