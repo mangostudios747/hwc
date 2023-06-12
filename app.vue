@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col w-full h-screen dark:text-white text-black bg-gradient-to-br from-amber-50 dark:from-amber-950 dark:via-black dark:to-indigo-950 to-indigo-50">
+  <div class="flex flex-col w-full h-screen dark:text-white text-black bg-gradient-to-br from-amber-50 dark:from-amber-950 dark:via-black dark:to-indigo-950 to-indigo-100">
     <nav class="flex  border-b-2 dark:border-white/10 border-black/10 flex-row">
       <h1 class="mr-auto my-4 ml-6 font-extrabold text-lg">
         <a href="/"
@@ -8,7 +8,7 @@
       </h1>
       <Menu as="div" class="relative inline-block text-left" v-if="user">
         <MenuButton
-          class="w-52 border-l-2 dark:border-white/10 border-black/10 inline-flex justify-center bg-black dark:bg-white bg-opacity-0 h-full font-medium hover:bg-opacity-10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+          class="w-52 border-l-2 dark:border-white/10 border-black/10 inline-flex justify-center bg-black dark:bg-white dark:bg-opacity-0 bg-opacity-0 h-full font-medium hover:bg-opacity-10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
           >
           <span class="my-auto mx-auto px-6">{{ user.username }} <Icon class="ml-2" name="heroicons:chevron-down-solid"/></span>
           </MenuButton
@@ -48,6 +48,6 @@ const user = useState("me");
 <style>
 
 .menu-item {
-  @apply hover:bg-opacity-10  bg-black dark:bg-white bg-opacity-0 flex w-full items-center px-4 py-2;
+  @apply hover:bg-opacity-10 dark:bg-opacity-0 bg-black dark:bg-white bg-opacity-0 flex w-full items-center px-4 py-2;
 }
 </style>
