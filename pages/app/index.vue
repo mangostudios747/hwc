@@ -3,12 +3,12 @@
     <h2 class="text-4xl !font-semibold btn-link">Spaces</h2>
     <div class="grid grid-cols-6 gap-4 mt-8">
     <a :href="`/app/${space._id}`"
-    class="hover:bg-white/10 cursor-pointer block border-2 border-white/10 p-4"
+    class="hover:bg-white/10 hover:bg-black/5 cursor-pointer block border-2 border-black/10 dark:border-white/10 p-4"
     :key="space._id" v-for="{space} in result?.me?.spaces">
     <span class="font-semibold">{{space.title}}</span>
     </a>
     <a 
-    class="hover:bg-white/10 cursor-pointer text-center block border-2 border-white/10 p-4"
+    class="dark:hover:bg-white/10 hover:bg-black/5 cursor-pointer text-center block border-2 border-black/10 dark:border-white/10 p-4"
     >
     <button @click="openModal()" class="font-semibold h-full w-full"><Icon name="+" /></button>
     </a>

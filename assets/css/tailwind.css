@@ -24,5 +24,8 @@
 }
 
 .listboxinput {
-    @apply w-full bg-transparent outline-none text-white/80;
+    @apply w-full bg-transparent outline-none text-black/80 dark:text-white/80;
+}
+.breadcrumb-link {
+    @apply hover:bg-white/10 rounded py-1 px-2
 }

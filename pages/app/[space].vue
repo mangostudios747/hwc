@@ -1,13 +1,16 @@
 <template>
-  <div class="mt-8 mx-16">
+  <div class="mt-8 max-w-2xl mx-auto flex flex-col">
+    <client-only>
     <div v-if="!space">loading...</div>
     <div v-else>
-    <h1 class="text-4xl !font-semibold">{{ space.title }}</h1>
-    <div class="mt-8">
-      <Note :noteID="note._id" :key="note._id" v-for="note in space.rootNotes"/>
+            <!--<breadcrumb :notes="data" :space="space"/>-->
+
+        <Nuxt-Page :space="space" :rootNotes="space.rootNotes" />
+        
+      </div>
+    </client-only>
+    {{error}}
     </div>
-    </div>
-  </div>
 </template>
 
 <script setup>
@@ -15,6 +18,7 @@ const route = useRoute();
 const query = gql`
   query ($id: ID!) {
     spaceByID(id: $id) {
+      _id
       title
       rootNotes {
         title
@@ -24,11 +28,40 @@ const query = gql`
   }
 `;
 
-const {
-  result, loading
-} = useQuery(query, { id: route.params.space });
-const space = ref(result.value?.spaceByID)
+const { result, loading } = useQuery(query, { id: route.params.space });
+const space = ref(result.value?.spaceByID);
 
+const note_ids = route.params.notes;
+
+const NOTE_QUERY = gql`
+  query ($noteID: ID!) {
+    noteByID(id: $noteID) {
+      _id
+      title
+    }
+  }
+`;
+
+/*const { data, pending, error, refresh } = await useAsyncData(
+  async () => {
+    if (!note_ids) {
+      console.log("bye")
+      return [];
+    }
+    const a = []
+    console.log("um", note_ids)
+    for (const index in note_ids){
+      console.log("hi")
+        const note_id = note_ids[index]
+        const { data } = await useAsyncQuery(NOTE_QUERY, { noteID: note_id });
+        const note = (await data.value).noteByID;
+        const chain = note_ids.splice(0, index + 1).join("/");
+        note.url = chain;
+        a.push(note)
+      }
+    return a;
+  }
+);*/
 </script>
 
 <style>
