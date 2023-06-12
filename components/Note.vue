@@ -1,7 +1,8 @@
 <template>
   <div
-    class="flex flex-row gap-1 py-1 focus:bg-black/5 focus-within:bg-black/5 hover:bg-black/5 dark:focus:bg-white/10 dark:focus-within:bg-white/10 dark:hover:bg-white/10 rounded"
+    class="flex group flex-row gap-1 py-1   rounded" :class="open? 'bg-black/5 dark:bg-white/10':''"
   >
+  <icon size="20px" class="cursor-grab opacity-0 group-hover:opacity-100 my-auto ml-1 text-white/50 hover:text-white/80" name="ph:dots-six-vertical-bold"/>
     <a class="flex" :href="`${$route.fullPath}/${note?._id}`"><page-preview :bars="note?.subNotes.length" v-if="note?.subNotes.length" /></a>
     <div class="flex flex-col px-2 w-full">
       <input
@@ -16,9 +17,9 @@
       }}</span>
     </div>
     <Popover class="relative flex">
-      <PopoverButton class="mx-2 flex my-auto outline-none">
+      <PopoverButton @click="swap" class="mx-2 flex my-auto group-hover:opacity-100 opacity-0 outline-none">
         <icon
-          class="my-auto text-black/80 dark:text-white/80"
+          class="my-auto text-black/50 dark:text-white/50"
           size="1.25rem"
           name="heroicons:ellipsis-horizontal-circle"
         />
@@ -71,6 +72,11 @@
 <script setup>
 const props = defineProps(["noteID"]);
 const updateKey = ref(String(Math.random()));
+const open = ref(false)
+
+function swap(){
+  open.value = !open.value
+}
 
 const NOTE_QUERY = gql`
   query ($noteID: ID!) {

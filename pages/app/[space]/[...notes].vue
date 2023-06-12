@@ -1,7 +1,7 @@
 <template>
 <div v-if="!note"></div>
 <div v-else>
-  <h1 class="text-4xl !font-semibold px-2">{{ note.title }}</h1>
+  <h1 class="text-4xl !font-semibold px-8">{{ note.title }}</h1>
   <div class="mt-6">
     <div class="h-full w-full flex flex-col gap-1">
       <Note :noteID="subNote._id" :key="subNote._id" v-for="subNote in note.subNotes" />

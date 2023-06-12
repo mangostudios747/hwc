@@ -1,9 +1,10 @@
 <template>
-  <div>
-    <form @submit.prevent="reset" style="flex-direction: column; display: flex; max-width: 15rem; gap: 1em; margin-top: 1em">
-      <input type="password" placeholder="new password" v-model="password" >
-      <input type="password" placeholder="confirm new password" v-model="password2" >
-      <button type="submit" :disabled="password && password!=password2">set password</button>
+  <div class="flex h-full w-full">
+    <form @submit.prevent="reset" class="border-box box-container mx-auto my-auto">
+      <h2 class="text-xl font-bold">reset your password<span class="text-amber-500 text-2xl">.</span></h2>
+      <input type="password" autocomplete="new-password" class="inpt" placeholder="new password" v-model="password" >
+      <input type="password" autocomplete="new-password" class="inpt" placeholder="confirm new password" v-model="password2" >
+      <button type="submit" class="btn-link ml-auto" :disabled="password && password!=password2">set password</button>
     </form>
     <p>{{err}}</p>
   </div>

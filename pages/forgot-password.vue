@@ -2,7 +2,7 @@
   <div class="flex h-full w-full">
     <form class="border-box box-container mx-auto my-auto"  @submit.prevent="sendReset" >
       <h2 class="text-xl font-bold">reset your password<span class="text-amber-500 text-2xl">.</span></h2>
-      <input placeholder="Email" class="inpt" v-model="email" >
+      <input placeholder="email" class="inpt" v-model="email" >
       <button class="btn-link ml-auto" type="submit">send reset email</button>
     </form>
     <p v-if="err=='UserNotFound'">doesn't look like you have an account. <a href='/register'>make one?</a></p>

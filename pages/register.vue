@@ -5,9 +5,9 @@
       @submit.prevent="register"
     >
       <h2 class="text-xl font-bold">register<span class="text-amber-500 text-2xl">.</span></h2>
-      <input class="inpt" placeholder="email" v-model="email" />
-      <input class="inpt" placeholder="username" v-model="username" />
-      <input class="inpt" placeholder="password" type="password" v-model="password" />
+      <input class="inpt" placeholder="email" type="email" autocomplete="email" v-model="email" />
+      <input class="inpt" placeholder="username" autocomplete="username" v-model="username" />
+      <input class="inpt" placeholder="password" type="password" autocomplete="new-password" v-model="password" />
       <button class="btn-link text-right" type="submit">register</button>
     </form>
   </div>
