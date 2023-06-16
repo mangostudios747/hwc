@@ -1,9 +1,15 @@
 <template>
   <div
-    class="flex group flex-row gap-1 py-1   rounded" :class="open? 'bg-black/5 dark:bg-white/10':''"
+    class="flex group flex-row gap-1 py-1 rounded focus-within:bg-black/5 focus-within:dark:bg-white/10"
   >
-  <icon size="20px" class="cursor-grab opacity-0 group-hover:opacity-100 my-auto ml-1 text-white/50 hover:text-white/80" name="ph:dots-six-vertical-bold"/>
-    <a class="flex" :href="`${$route.fullPath}/${note?._id}`"><page-preview :bars="note?.subNotes.length" v-if="note?.subNotes.length" /></a>
+    <icon
+      size="20px"
+      class="cursor-grab opacity-0 group-hover:opacity-100 my-auto ml-1 text-white/50 hover:text-white/80"
+      name="ph:dots-six-vertical-bold"
+    />
+    <a class="flex" :href="`${$route.fullPath}/${note?._id}`"
+      ><page-preview :bars="note?.subNotes.length" v-if="note?.subNotes.length"
+    /></a>
     <div class="flex flex-col px-2 w-full">
       <input
         @click.prevent
@@ -12,12 +18,16 @@
         class="listboxinput w-full"
         v-model="noteTitle"
       />
-      <span class="dark:text-white/50 text-black/50" v-if="note?.subNotes.length">{{
-        note.subNotes.map((e) => e.title).join(" • ")
-      }}</span>
+      <span
+        class="dark:text-white/50 text-black/50"
+        v-if="note?.subNotes.length"
+        >{{ note.subNotes.map((e) => e.title).join(" • ") }}</span
+      >
     </div>
     <Popover class="relative flex">
-      <PopoverButton @click="swap" class="mx-2 flex my-auto group-hover:opacity-100 opacity-0 outline-none">
+      <PopoverButton
+        class="mx-2 flex my-auto group-hover:opacity-100 opacity-0 outline-none"
+      >
         <icon
           class="my-auto text-black/50 dark:text-white/50"
           size="1.25rem"
@@ -72,10 +82,13 @@
 <script setup>
 const props = defineProps(["noteID"]);
 const updateKey = ref(String(Math.random()));
-const open = ref(false)
+const open = ref(false);
+const swap = () => {
+  open.value = !open.value;
+};
 
-function swap(){
-  open.value = !open.value
+function log(a) {
+  console.log(a);
 }
 
 const NOTE_QUERY = gql`
