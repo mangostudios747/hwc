@@ -6,11 +6,11 @@
         <h3 class="listheading">Profile</h3>
         <div class="listbox flex flex-row gap-2">
           <span class="font-semibold w-24">Username</span>
-          <span v-text="user.username" class=" listboxinput" />
+          <span v-text="user.username" class="listboxinput" />
         </div>
         <div class="listbox flex flex-row gap-2">
           <span class="font-semibold w-24">Email</span>
-          <span v-text="user.email" class=" listboxinput" />
+          <span v-text="user.email" class="listboxinput" />
         </div>
       </div>
 
@@ -33,6 +33,9 @@ const { onLogout } = useApollo();
 const router = useRouter();
 function logout() {
   onLogout();
+  useState("me", () => {
+    return null;
+  });
   router.push("/");
 }
 

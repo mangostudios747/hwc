@@ -1,17 +1,22 @@
 <template>
   <div
-    class="flex group flex-row gap-1 py-1 rounded focus-within:bg-black/5 focus-within:dark:bg-white/10"
+    class="flex group flex-row gap-1 py-1 rounded"
+    :class="isFocused? '': 'focus-within:bg-black/5 focus-within:dark:bg-white/10'"
   >
+  <button @click.prevent>
     <icon
       size="20px"
-      class="cursor-grab opacity-0 group-hover:opacity-100 my-auto ml-1 text-white/50 hover:text-white/80"
+      class="cursor-grab opacity-0 group-hover:opacity-100 group-focus-within:opacity-100  my-auto ml-1 text-white/50 hover:text-white/80"
       name="ph:dots-six-vertical-bold"
     />
+  </button>
     <a class="flex" :href="`${$route.fullPath}/${note?._id}`"
       ><page-preview :bars="note?.subNotes.length" v-if="note?.subNotes.length"
     /></a>
     <div class="flex flex-col px-2 w-full">
       <input
+        @focusin="setIsFocused"
+        @focusout="setIsFocused"
         @click.prevent
         v-if="result"
         :class="[note?.subNotes.length ? 'font-semibold' : '']"
@@ -26,7 +31,7 @@
     </div>
     <Popover class="relative flex">
       <PopoverButton
-        class="mx-2 flex my-auto group-hover:opacity-100 opacity-0 outline-none"
+        class="mx-2 flex my-auto group-focus-within:opacity-100 group-hover:opacity-100 opacity-0 outline-none"
       >
         <icon
           class="my-auto text-black/50 dark:text-white/50"
@@ -82,13 +87,15 @@
 <script setup>
 const props = defineProps(["noteID"]);
 const updateKey = ref(String(Math.random()));
-const open = ref(false);
-const swap = () => {
-  open.value = !open.value;
-};
+const isFocused = ref(false);
 
-function log(a) {
-  console.log(a);
+function setIsFocused(e){
+  if (e.type=="focusin"){
+    isFocused.value = true;
+  }
+  else if (e.type=="focusout"){
+    isFocused.value = false
+  }
 }
 
 const NOTE_QUERY = gql`

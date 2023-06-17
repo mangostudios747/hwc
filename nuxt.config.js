@@ -25,5 +25,8 @@ export default defineNuxtConfig({
   },
   headlessui: {
     prefix: ''
+},
+experimental: {
+  renderJsonPayloads: true
 }
 })
