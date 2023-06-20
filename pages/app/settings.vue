@@ -31,11 +31,9 @@
 const user = useState("me");
 const { onLogout } = useApollo();
 const router = useRouter();
-function logout() {
-  onLogout();
-  useState("me", () => {
-    return null;
-  });
+async function logout() {
+  await onLogout();
+  user.value = null
   router.push("/");
 }
 
