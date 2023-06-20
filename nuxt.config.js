@@ -9,24 +9,24 @@ export default defineNuxtConfig({
         httpEndpoint:  //'https://frozenmango747.uc.r.appspot.com/graphql' ||
           (process.env.NODE_ENV == 'production' ? 'https://frozenmango747.uc.r.appspot.com/graphql' : 'http://localhost:4000/graphql'),
         httpLinkOptions: {
-          credentials: 'include'
+          credentials: 'include',
         },
         defaultOptions: {
           fetchPolicy: "no-cache",
         },
         wsEndpoint: //'wss://frozenmango747.uc.r.appspot.com/graphql' ||
-        (process.env.NODE_ENV == 'production' ? 'wss://frozenmango747.uc.r.appspot.com/graphqlws' : 'ws://localhost:4000/graphqlws'),
-      
+          (process.env.NODE_ENV == 'production' ? 'wss://frozenmango747.uc.r.appspot.com/graphqlws' : 'ws://localhost:4000/graphqlws'),
+
       }
     }
   },
   tailwind: {
-    
+
   },
   headlessui: {
     prefix: ''
-},
-experimental: {
-  renderJsonPayloads: true
-}
+  },
+  experimental: {
+    renderJsonPayloads: true
+  }
 })

@@ -26,6 +26,7 @@
 <style>
 </style>
 <script setup>
+const user = useState("me");
 const { onLogin } = useApollo();
 const router = useRouter();
 const email = ref("");
@@ -54,7 +55,8 @@ async function login() {
     return;
   }
   err.value = "";
-  onLogin(token);
+  await onLogin(token);
+
   navigateTo("/app");
 }
 </script>

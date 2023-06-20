@@ -16,7 +16,9 @@
   "dependencies": {
     "@headlessui/vue": "^1.7.14",
     "@nuxtjs/tailwindcss": "^6.6.7",
+    "@pinia/nuxt": "^0.4.11",
     "nuxt-headlessui": "^1.1.4",
+    "pinia": "2.0.36",
     "postcss-custom-properties": "^13.1.5"
   }
 }

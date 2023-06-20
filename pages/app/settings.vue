@@ -4,7 +4,7 @@
     <div class="mt-8 flex gap-8 flex-col">
       <div class="border-box px-12 py-4">
         <h3 class="listheading">Profile</h3>
-        <div class="listbox flex flex-row gap-2">
+        <div v-if="user" class="listbox flex flex-row gap-2">
           <span class="font-semibold w-24">Username</span>
           <span v-text="user.username" class="listboxinput" />
         </div>
@@ -31,12 +31,10 @@
 const user = useState("me");
 const { onLogout } = useApollo();
 const router = useRouter();
-function logout() {
-  onLogout();
-  useState("me", () => {
-    return null;
-  });
-  router.push("/");
+async function logout() {
+  await onLogout();
+  user.value = null
+  router.push("/login");
 }
 
 async function deleteAccount() {
@@ -59,7 +57,7 @@ async function deleteAccount() {
     },
   } = await mutate();
   if (success) {
-    return logout();
+    return await logout();
   }
   alert("account deletion not successful. your password was incorrect.");
 }

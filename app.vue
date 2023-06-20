@@ -6,11 +6,11 @@
           >homework central<span class="text-amber-500 text-2xl">.</span></a
         >
       </h1>
-      <Menu as="div" class="relative inline-block text-left" v-if="user">
+      <Menu as="div" class="relative inline-block text-left" v-if="!!me">
         <MenuButton
           class="w-52 border-l-2 dark:border-white/10 border-black/10 inline-flex justify-center bg-black dark:bg-white dark:bg-opacity-0 bg-opacity-0 h-full font-medium hover:bg-opacity-10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
           >
-          <span class="my-auto mx-auto px-6">{{ user.username }} <Icon class="ml-2" name="heroicons:chevron-down-solid"/></span>
+          <span class="my-auto mx-auto px-6">{{ me.username }} <Icon class="ml-2" name="heroicons:chevron-down-solid"/></span>
           </MenuButton
         >
         <MenuItems
@@ -42,7 +42,7 @@
 </template>
 
 <script setup>
-const user = useState("me");
+const me = computed(()=> useState("me", ()=> null).value);
 </script>
 
 <style>
