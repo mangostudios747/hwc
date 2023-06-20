@@ -34,7 +34,7 @@ const router = useRouter();
 async function logout() {
   await onLogout();
   user.value = null
-  router.push("/login");
+  router.push("/");
 }
 
 async function deleteAccount() {
