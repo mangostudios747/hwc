@@ -2,9 +2,9 @@
   <div class="mt-8 mx-16">
     <h2 class="text-4xl !font-semibold btn-link">Settings</h2>
     <div class="mt-8 flex gap-8 flex-col">
-      <div class="border-box px-12 py-4">
+      <div v-if="user" class="border-box px-12 py-4">
         <h3 class="listheading">Profile</h3>
-        <div v-if="user" class="listbox flex flex-row gap-2">
+        <div class="listbox flex flex-row gap-2">
           <span class="font-semibold w-24">Username</span>
           <span v-text="user.username" class="listboxinput" />
         </div>
