@@ -1,4 +1,5 @@
 <template>
+<slot :bind="{ value: noteTitle }" :on="{ input: setNoteTitle }" >
   <div
     class="flex group flex-row gap-1 py-1 rounded"
     :class="isFocused? '': 'focus-within:bg-black/5 focus-within:dark:bg-white/10'"
@@ -15,7 +16,7 @@
     /></a>
     <div class="flex flex-col px-2 w-full">
       <input
-        
+        @keydown="keydownHandler"
         @focusin="setIsFocused"
         @focusout="setIsFocused"
         @click.prevent
@@ -38,12 +39,20 @@
         />
     </note-popover>
   </div>
+</slot>
 </template>
 
 <script setup>
-const props = defineProps(["noteID"]);
+const props = defineProps(["noteID",]);
 const updateKey = ref(String(Math.random()));
 const isFocused = ref(false);
+
+function keydownHandler(e){
+  if (e.key == 'Enter'){
+    // create a new note :flushed:
+    console.log("😳")
+  }
+}
 
 function setIsFocused(e){
   if (e.type=="focusin"){
@@ -120,9 +129,13 @@ const noteTitle = computed({
         updateKey: updateKey.value,
       },
     });
-    mutate().then(console.log("did"));
+    mutate()
   },
 });
+
+function setNoteTitle(e){
+  noteTitle.value = e.target.value;
+}
 </script>
 
 <style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-16 mt-8">
+  <div class="mx-16 mt-8 w-full h-full">
     <h2 class="text-4xl !font-semibold btn-link">Spaces</h2>
     <div class="grid grid-cols-6 gap-4 mt-8">
     <a :href="`/app/${space._id}`"

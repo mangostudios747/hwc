@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-8 mx-16">
+  <div class="mt-8 mx-16 w-full h-full">
     <h2 class="text-4xl !font-semibold btn-link">Settings</h2>
     <div class="mt-8 flex gap-8 flex-col">
       <div v-if="user" class="border-box px-12 py-4">
