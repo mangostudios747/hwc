@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-8 w-full h-full max-w-2xl mx-auto flex flex-col">
+  <div class="mt-8 w-full h-full sm:max-w-xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl mx-auto flex flex-col">
     <div v-if="loading">loading...</div>
     <div v-if="!loading">
       

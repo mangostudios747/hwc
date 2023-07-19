@@ -5,25 +5,91 @@
       <div v-if="user" class="border-box px-12 py-4">
         <h3 class="listheading">Profile</h3>
         <div class="listbox flex flex-row gap-2">
-          <span class="font-semibold w-24">Username</span>
+          <span class="font-semibold w-28">Username</span>
           <span v-text="user.username" class="listboxinput" />
+          <button @click="()=>openModal('username')" disabled class="text-amber-400/50 font-semibold"> Change </button>          
         </div>
         <div class="listbox flex flex-row gap-2">
-          <span class="font-semibold w-24">Email</span>
+          <span class="font-semibold w-28">Email</span>
           <span v-text="user.email" class="listboxinput" />
+          <button @click="()=>openModal('email')" class="text-amber-400 font-semibold"> Change </button>
         </div>
       </div>
 
       <div class="border-box px-12 py-4">
         <h3 class="listheading">Account</h3>
-        <button class="listbox">Change Username</button>
-        <button class="listbox">Change Email</button>
         <button class="listbox" @click="logout">Logout</button>
         <button class="listbox" @click="deleteAccount" style="color: red">
           Delete Account
         </button>
       </div>
     </div>
+    <TransitionRoot appear :show="isOpen.email" as="template">
+    <Dialog as="div" @close="()=>closeModal('email')" class="relative z-10">
+      <TransitionChild
+        as="template"
+        enter="duration-300 ease-out"
+        enter-from="opacity-0"
+        enter-to="opacity-100"
+        leave="duration-200 ease-in"
+        leave-from="opacity-100"
+        leave-to="opacity-0"
+      >
+        <div class="fixed inset-0 bg-black bg-opacity-50" />
+      </TransitionChild>
+
+      <div class="fixed inset-0 overflow-y-auto">
+        <div
+          class="flex min-h-full items-center justify-center p-4 text-center"
+        >
+          <TransitionChild
+            as="template"
+            enter="duration-300 ease-out"
+            enter-from="opacity-0 scale-95"
+            enter-to="opacity-100 scale-100"
+            leave="duration-200 ease-in"
+            leave-from="opacity-100 scale-100"
+            leave-to="opacity-0 scale-95"
+          >
+            <change-email-dialog />
+          </TransitionChild>
+        </div>
+      </div>
+    </Dialog>
+  </TransitionRoot>
+  <TransitionRoot appear :show="isOpen.username" as="template">
+    <Dialog as="div" @close="()=>closeModal('username')" class="relative z-10">
+      <TransitionChild
+        as="template"
+        enter="duration-300 ease-out"
+        enter-from="opacity-0"
+        enter-to="opacity-100"
+        leave="duration-200 ease-in"
+        leave-from="opacity-100"
+        leave-to="opacity-0"
+      >
+        <div class="fixed inset-0 bg-black bg-opacity-50" />
+      </TransitionChild>
+
+      <div class="fixed inset-0 overflow-y-auto">
+        <div
+          class="flex min-h-full items-center justify-center p-4 text-center"
+        >
+          <TransitionChild
+            as="template"
+            enter="duration-300 ease-out"
+            enter-from="opacity-0 scale-95"
+            enter-to="opacity-100 scale-100"
+            leave="duration-200 ease-in"
+            leave-from="opacity-100 scale-100"
+            leave-to="opacity-0 scale-95"
+          >
+            <change-username-dialog />
+          </TransitionChild>
+        </div>
+      </div>
+    </Dialog>
+  </TransitionRoot>
   </div>
 </template>
 
@@ -60,6 +126,15 @@ async function deleteAccount() {
     return await logout();
   }
   alert("account deletion not successful. your password was incorrect.");
+}
+
+const isOpen = ref({ email: false, username: false})
+
+function closeModal(key) {
+  isOpen.value[key] = false
+}
+function openModal(key) {
+  isOpen.value[key] = true
 }
 </script>
 
