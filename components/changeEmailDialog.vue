@@ -10,7 +10,7 @@
               </DialogTitle>
               <form>
               <div class="mt-6 w-full flex flex-col gap-6">
-                <input v-model="newEmail" @input="({target})=>{target.classList.remove('invalid')}" @invalid="({target})=>{target.classList.add('invalid')}" required type="email" class="inpt invalid !w-full" placeholder="New Email"/>
+                <input v-model="newEmail" @input="({target})=>{target.classList.remove('invalid')}" @invalid="({target})=>{target.classList.add('invalid')}" required type="email" class="inpt !w-full" placeholder="New Email"/>
                 <input v-model="password" @input="({target})=>{target.classList.remove('invalid')}" @invalid="({target})=>{target.classList.add('invalid')}" required type="password" class="inpt !w-full" placeholder="Password"/>
               </div>
 
